@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
-@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import "SAVideoRangeSlider.h"
+
+@interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,SAVideoRangeSliderDelegate>
 
 {
     BOOL _isVedio;
@@ -22,6 +24,10 @@
     
     UIButton *_play;
     
+    SAVideoRangeSlider *_videoSlider;
+    
+    
+    UIImageView *_showImageView;
     
     float current;
     
@@ -31,6 +37,7 @@
 }
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 
+
 @property (nonatomic,strong) UIImageView *imageview;
 
 @property (nonatomic,strong) AVPlayer *player;
@@ -39,6 +46,20 @@
 @end
 
 @implementation ViewController
+
+
+- (void)initSliderViewWithURL:(NSURL *)url{
+    
+    if (_videoSlider) {
+        [_videoSlider removeFromSuperview];
+        _videoSlider.delegate = nil;
+        _videoSlider = nil;
+    }
+    
+    _videoSlider = [[SAVideoRangeSlider alloc]initWithFrame:CGRectMake(10, 165, self.view.frame.size.width, 70) videoUrl:url];
+    _videoSlider.delegate = self;
+    [self.view addSubview:_videoSlider];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,8 +77,13 @@
     [segmen addTarget:self action:@selector(segmentedChange:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:segmen];
     
+    _showImageView = [[UIImageView alloc]init];
+    _showImageView.center = CGPointMake(self.view.frame.size.width/2.0, self.view.frame.size.height-100);
+    _showImageView.layer.borderColor = [UIColor redColor].CGColor;
+    _showImageView.layer.borderWidth = 2.0;
+    [self.view addSubview:_showImageView];
     
-    _imageview=  [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+    _imageview=  [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
     _imageview.backgroundColor = [UIColor grayColor];
     
     [self.view addSubview:_imageview];
@@ -91,7 +117,7 @@
 
     Camera = [UIButton buttonWithType:UIButtonTypeCustom];
     [Camera setTitle:@"Camera" forState:UIControlStateNormal];
-    Camera.center  =CGPointMake(self.view.center.x, self.view.center.y);
+    Camera.center  =CGPointMake(self.view.center.x, CGRectGetMaxY(segmen.frame)+50);
     [Camera setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     Camera.backgroundColor = [UIColor blackColor];
     Camera.bounds = CGRectMake(0, 0, 100, 50);
@@ -101,7 +127,7 @@
     Library = [UIButton buttonWithType:UIButtonTypeCustom];
     [Library setTitle:@"Library" forState:UIControlStateNormal];
     Library.tag = 10001;
-    Library.center  =CGPointMake(self.view.center.x, self.view.center.y+100);
+    Library.center  =CGPointMake(self.view.center.x, CGRectGetMaxY(Camera.frame)+50);
     [Library setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     Library.backgroundColor = [UIColor blackColor];
     Library.bounds = CGRectMake(0, 0, 100, 50);
@@ -232,10 +258,16 @@
     
     NSURL *url=[NSURL fileURLWithPath:videoPath];
 
+    [self initSliderViewWithURL:url];
+    
     AVPlayerItem *item = [[AVPlayerItem alloc]initWithURL:url];
     
     [self setAvPlayerWithItem:item];
 
+}
+- (void)SelectedUpdate:(SAVideoRangeSlider *)target WithNewThumbnail:(UIImage *)image{
+    _showImageView.image = image;
+    _showImageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
 }
 - (void)PlayVieo{
     
