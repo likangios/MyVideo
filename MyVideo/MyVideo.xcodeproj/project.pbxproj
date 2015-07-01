@@ -14,6 +14,8 @@
 		C8C655ED1B3EE3D10001E873 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8C655EC1B3EE3D10001E873 /* Images.xcassets */; };
 		C8C655F01B3EE3D10001E873 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C655EE1B3EE3D10001E873 /* LaunchScreen.xib */; };
 		C8C655FC1B3EE3D10001E873 /* MyVideoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C655FB1B3EE3D10001E873 /* MyVideoTests.m */; };
+		FEC6FB7E1B43ED6100987B1E /* KCView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FB7C1B43ED6100987B1E /* KCView.m */; };
+		FEC6FB801B43EDCC00987B1E /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = FEC6FB7F1B43EDCC00987B1E /* image.png */; };
 		FEE5BAC41B42432D00DD025E /* SAResizibleBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE5BABD1B42432D00DD025E /* SAResizibleBubble.m */; };
 		FEE5BAC51B42432D00DD025E /* SASliderLeft.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE5BABF1B42432D00DD025E /* SASliderLeft.m */; };
 		FEE5BAC61B42432D00DD025E /* SASliderRight.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE5BAC11B42432D00DD025E /* SASliderRight.m */; };
@@ -44,6 +46,9 @@
 		C8C655F51B3EE3D10001E873 /* MyVideoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyVideoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8C655FA1B3EE3D10001E873 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8C655FB1B3EE3D10001E873 /* MyVideoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyVideoTests.m; sourceTree = "<group>"; };
+		FEC6FB7C1B43ED6100987B1E /* KCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KCView.m; sourceTree = "<group>"; };
+		FEC6FB7D1B43ED6100987B1E /* KCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KCView.h; sourceTree = "<group>"; };
+		FEC6FB7F1B43EDCC00987B1E /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		FEE5BABC1B42432D00DD025E /* SAResizibleBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAResizibleBubble.h; sourceTree = "<group>"; };
 		FEE5BABD1B42432D00DD025E /* SAResizibleBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAResizibleBubble.m; sourceTree = "<group>"; };
 		FEE5BABE1B42432D00DD025E /* SASliderLeft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASliderLeft.h; sourceTree = "<group>"; };
@@ -96,8 +101,11 @@
 				FEE5BABB1B42432D00DD025E /* SAVideoRangeSlider */,
 				C8C655E31B3EE3D10001E873 /* AppDelegate.h */,
 				C8C655E41B3EE3D10001E873 /* AppDelegate.m */,
+				FEC6FB7F1B43EDCC00987B1E /* image.png */,
 				C8C655E61B3EE3D10001E873 /* ViewController.h */,
 				C8C655E71B3EE3D10001E873 /* ViewController.m */,
+				FEC6FB7C1B43ED6100987B1E /* KCView.m */,
+				FEC6FB7D1B43ED6100987B1E /* KCView.h */,
 				C8C655E91B3EE3D10001E873 /* Main.storyboard */,
 				C8C655EC1B3EE3D10001E873 /* Images.xcassets */,
 				C8C655EE1B3EE3D10001E873 /* LaunchScreen.xib */,
@@ -230,6 +238,7 @@
 				C8C655EB1B3EE3D10001E873 /* Main.storyboard in Resources */,
 				C8C655F01B3EE3D10001E873 /* LaunchScreen.xib in Resources */,
 				C8C655ED1B3EE3D10001E873 /* Images.xcassets in Resources */,
+				FEC6FB801B43EDCC00987B1E /* image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +260,7 @@
 				FEE5BAC71B42432D00DD025E /* SAVideoRangeSlider.m in Sources */,
 				C8C655E51B3EE3D10001E873 /* AppDelegate.m in Sources */,
 				C8C655E21B3EE3D10001E873 /* main.m in Sources */,
+				FEC6FB7E1B43ED6100987B1E /* KCView.m in Sources */,
 				FEE5BAC61B42432D00DD025E /* SASliderRight.m in Sources */,
 				FEE5BAC41B42432D00DD025E /* SAResizibleBubble.m in Sources */,
 				FEE5BAC51B42432D00DD025E /* SASliderLeft.m in Sources */,

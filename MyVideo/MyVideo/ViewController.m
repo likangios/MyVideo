@@ -10,6 +10,9 @@
 #import <AVFoundation/AVFoundation.h>
 #import "SAVideoRangeSlider.h"
 
+#import "KCView.h"
+
+
 @interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,SAVideoRangeSliderDelegate>
 
 {
@@ -63,6 +66,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    KCView *view = [[KCView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:view];
+    return;
     
     _isVedio = YES;
     
